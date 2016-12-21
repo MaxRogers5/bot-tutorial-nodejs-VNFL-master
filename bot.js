@@ -6,6 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexDL = /^\/DDL/i; botRegexRules = /^\/rules/
+      botRegexCoach = /^\/PDL/i;
       botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexWk = /^\/users/;
       botRegexOW = /^\/ratings/; 
@@ -55,7 +56,12 @@ function respond() {
     this.res.writeHead(200);
     postMessage("http://www.reddit.com/r/theredditbowl");
     this.res.end();
-  } 
+  }
+  else if (request.text && botRegexCoach.test(request.txt)){
+    this.res.writeHead(200);
+    postMessage("https://www.daddyleagues.com/trb/coaches");
+    this.res.end():
+  }
   else if(request.text && botRegexWk.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://google.com");
