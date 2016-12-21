@@ -6,15 +6,15 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/; 
-      botRegexDL = /^\/DDL/i;
+      botRegexDepth = /^\/depth/i;
       botRegexRules = /^\/rules/
-      botRegexSC = /^\/SDL/i; 
-      botRegexP = /^\/PDL/i;  
+      botRegexSC = /^\/schedule/i; 
+      botRegexPlayer = /^\/player/i;  
       botRegexTw = /^\/twitch/i; 
       botRegexSb = /^\/sub/; 
       botRegexCoaches = /^\/coaches/;  
       botRegexOW = /^\/ratings/; 
-      botRegexSchedule = /^\/schedule/; 
+      botRegexSim = /^\/SIM?/; 
       botRegexStand = /^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -24,7 +24,7 @@ function respond() {
     postMessage(cool());
     this.res.end();
   }
-  else if(request.text && botRegexDL.test(request.text)) {
+  else if(request.text && botRegexDepth.test(request.text)) {
     this.res.writeHead(200);
     //postMessage("http://www.daddyleagues.com/maddenrating?name=&position=all&team="+request.text.substring(5,8));
     postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(5,8)+"/depthchart");
@@ -51,7 +51,7 @@ function respond() {
     postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(5,8)+"/schedule");
     this.res.end();
   }
-  else if(request.text && botRegexP.test(request.text)) {
+  else if(request.text && botRegexPlayer.test(request.text)) {
     this.res.writeHead(200);
     var req = request.text.substring(5,request.text.length);
     var rep = req.replace(/ /,"+");
@@ -74,7 +74,7 @@ function respond() {
     postMessage("https://www.daddyleagues.com/trb/coaches");
     this.res.end();
   } 
-  else if(request.text && botRegexSchedule.test(request.text)) {
+  else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
     this.res.end();
