@@ -65,7 +65,7 @@ function respond() {
     postMessage("http://www.reddit.com/r/theredditbowl");
     this.res.end();
   } 
-  else if(request.text && botRegexWk.test(request.text)) {
+  else if(request.text && botRegexCoaches.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://www.daddyleagues.com/trb/coaches");
     this.res.end();
