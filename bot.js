@@ -16,13 +16,12 @@ function respond() {
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
-    if(request.text && botRegexDL.test(request.text)) {
+  if(request.text && botRegexDL.test(request.text)) {
     this.res.writeHead(200);
     //postMessage("http://www.daddyleagues.com/maddenrating?name=&position=all&team="+request.text.substring(5,8));
     postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(5,8)+"/depthchart");
     this.res.end();
   } 
-  
   else if(request.text && botRegexOW.test(request.text)) {
     this.res.writeHead(200);
     postMessage("www.daddyleagues.com/maddenrating/");
