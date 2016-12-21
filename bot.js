@@ -14,7 +14,7 @@ function respond() {
       botRegexSb = /^\/sub/; 
       botRegexCoaches = /^\/coaches/;  
       botRegexOW = /^\/ratings/; 
-      botRegexSim = /^\/SIM?/; 
+      botRegexSim = /^\/recommended/; 
       botRegexStand = /^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -27,7 +27,7 @@ function respond() {
   else if(request.text && botRegexDepth.test(request.text)) {
     this.res.writeHead(200);
     //postMessage("http://www.daddyleagues.com/maddenrating?name=&position=all&team="+request.text.substring(5,8));
-    postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(5,8)+"/depthchart");
+    postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(7,10)+"/depthchart");
     this.res.end();
   } 
   else if(request.text && botRegexStand.test(request.text)){
