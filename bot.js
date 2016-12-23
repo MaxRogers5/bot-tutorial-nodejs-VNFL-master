@@ -15,6 +15,7 @@ function respond() {
       botRegexCoaches = /^\/coaches/;  
       botRegexOW = /^\/ratings/; 
       botRegexSim = /^\/recommended/; 
+      botRegexUserGames = /^\/usergames/;
       botRegexStand = /^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -77,6 +78,16 @@ function respond() {
   else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
+    this.res.end();
+  }
+   else if(request.text && botRegexUserGames.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
+    this.res.end();
+  }
+   else if(request.text && botRegexSim.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("This Is A Test.");
     this.res.end();
   }
   else {
