@@ -82,12 +82,12 @@ function respond() {
   }
    else if(request.text && botRegexUserGames.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
+    postMessage("This Is A Test.");
     this.res.end();
   }
    else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("This Is A Test.");
+    postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
     this.res.end();
   }
   else {
