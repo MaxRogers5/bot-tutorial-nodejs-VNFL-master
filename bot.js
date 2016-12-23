@@ -82,7 +82,8 @@ function respond() {
   }
    else if(request.text && botRegexUserGames.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("This Is A Test.");
+    postMessage("Week 1: Seahawks @ Panthers\r Week 4:Texans @ Panthers \rWeek 8: Vikings @ Raiders \rWeek 12: Texans @ Raiders \rWeek 15: 
+Seahawks @ Steelers");
     this.res.end();
   }
    else if(request.text && botRegexSim.test(request.text)) {
