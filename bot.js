@@ -16,7 +16,6 @@ function respond() {
       botRegexOW = /^\/ratings/; 
       botRegexSim = /^\/recommended/; 
       botRegexStand = /^\/standings/;
-      botRegexUserGames = /^\/user games/i;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -78,12 +77,6 @@ function respond() {
   else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
-    this.res.end();
-  }
-  else if(request.text && botRegexUserGames.test(request.txt)) {
-    this.res.writeHead(200);
-    postMessage("Week 1: Seahawks @ Panthers\r Week 4:Texans @ Panthers \rWeek 8: Vikings @ Raiders \rWeek 12: Texans @ Raiders \rWeek 15: 
-Seahawks @ Steelers");
     this.res.end();
   }
   else {
