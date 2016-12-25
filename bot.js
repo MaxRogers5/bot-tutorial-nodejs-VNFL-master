@@ -98,8 +98,7 @@ function respond() {
     req.open('GET', 'www.daddyleagues.com/trb/standing/ranking', false);   
     req.send(null);  
     if(req.status == 200)  
-      page_data = dump(req.responseText);
-      postMessage(page_data)
+      PostMessage(req.responseText);
     this.res.end();
   }
   else {
