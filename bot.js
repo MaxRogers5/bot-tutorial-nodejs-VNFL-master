@@ -101,7 +101,8 @@ function respond() {
   }
    else if(request.text && botRegexRanking.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(httpGet('http://daddyleagues.com/trb/standing/ranking'))
+    theUrl = "http://daddyleagues.com/trb/standing/ranking"
+    postMessage(httpGet(theUrl))
     this.res.end();
   }
   else {
