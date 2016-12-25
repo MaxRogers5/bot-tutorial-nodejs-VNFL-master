@@ -24,7 +24,6 @@ function respond() {
       botRegexOW = /^\/ratings/; 
       botRegexSim = /^\/recommended/; 
       botRegexUserGames = /^\/usergames/;
-      botRegexRanking = /^\/rankings/;
       botRegexStand = /^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -97,12 +96,6 @@ function respond() {
    else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
-    this.res.end();
-  }
-   else if(request.text && botRegexRanking.test(request.text)) {
-    this.res.writeHead(200);
-    theUrl = "http://daddyleagues.com/trb/standing/ranking"
-    postMessage(httpGet(theUrl))
     this.res.end();
   }
   else {
