@@ -3,6 +3,14 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/; 
@@ -16,7 +24,7 @@ function respond() {
       botRegexOW = /^\/ratings/; 
       botRegexSim = /^\/recommended/; 
       botRegexUserGames = /^\/usergames/;
-      botRegexRanking = /^\/ranking/;
+      botRegexRanking = /^\/rankings/;
       botRegexStand = /^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -94,11 +102,7 @@ function respond() {
    else if(request.text && botRegexRanking.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Rankings Soon");
-    var req = new XMLHttpRequest();  
-    req.open('GET', 'www.daddyleagues.com/trb/standing/ranking', false);   
-    req.send(null);  
-    if(req.status == 200)  
-      PostMessage(req.responseText);
+    postMessage(httpGet('http://daddyleagues.com/trb/standing/ranking'))
     this.res.end();
   }
   else {
