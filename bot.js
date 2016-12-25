@@ -91,11 +91,11 @@ function respond() {
     postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
     this.res.end();
   }
-   else if (request.text && botRegexRanking.test(request.text)) {
+   else if(request.text && botRegexRanking.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("Rankings Soon")
+    postMessage("Rankings Soon");
     this.res.end();
-   }
+  }
   else {
     console.log("don't care");
     this.res.writeHead(200);
