@@ -102,7 +102,7 @@ function respond() {
    else if(request.text && botRegexRanking.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Rankings Soon");
-    //postMessage(httpGet('http://daddyleagues.com/trb/standing/ranking'))
+    postMessage(httpGet('http://daddyleagues.com/trb/standing/ranking'))
     this.res.end();
   }
   else {
