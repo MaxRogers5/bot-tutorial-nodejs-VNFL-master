@@ -93,11 +93,8 @@ function respond() {
   }
    else if (request.text && botRegexRanking.test(request.text)) {
     this.res.writeHead(200);
-    var req = new XMLHttpRequest();  
-    req.open('GET', 'http://daddyleagues.com/trb/standing/ranking', false);   
-    req.send(null);  
-    if(req.status == 200)  
-       postMessage(req.responseText);
+    postMessage("Rankings Soon")
+    this.res.end();
    }
   else {
     console.log("don't care");
