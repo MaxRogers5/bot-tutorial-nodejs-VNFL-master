@@ -36,12 +36,12 @@ function respond() {
   else if(request.text && botRegexDepth.test(request.text)) {
     this.res.writeHead(200);
     //postMessage("http://www.daddyleagues.com/maddenrating?name=&position=all&team="+request.text.substring(5,8));
-    postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(7,10)+"/depthchart");
+    postMessage("http://daddyleagues.com/nvfl/team/"+request.text.substring(7,10)+"/depthchart");
     this.res.end();
   } 
   else if(request.text && botRegexStand.test(request.text)){
     this.res.writeHead(200);
-    postMessage("https://www.daddyleagues.com/trb/standings")
+    postMessage("https://www.daddyleagues.com/vnfl/standings")
     this.res.end();
   }
   else if(request.text && botRegexOW.test(request.text)) {
@@ -51,20 +51,20 @@ function respond() {
   } 
   else if(request.text && botRegexRules.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://www.daddyleagues.com/trb/rules");
+    postMessage("https://www.daddyleagues.com/vnfl/rules");
     this.res.end();
   } 
   else if(request.text && botRegexSC.test(request.text)) {
     this.res.writeHead(200);
     
-    postMessage("http://daddyleagues.com/trb/team/"+request.text.substring(10,13)+"/schedule");
+    postMessage("http://daddyleagues.com/vnfl/team/"+request.text.substring(10,13)+"/schedule");
     this.res.end();
   }
   else if(request.text && botRegexPlayer.test(request.text)) {
     this.res.writeHead(200);
     var req = request.text.substring(8,request.text.length);
     var rep = req.replace(/ /,"+");
-    postMessage("http://daddyleagues.com/trb/players?name="+rep+"&position=all&team=all");
+    postMessage("http://daddyleagues.com/vnfl/players?name="+rep+"&position=all&team=all");
     
     this.res.end();
   }  
@@ -75,17 +75,17 @@ function respond() {
   } 
   else if(request.text && botRegexSb.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("http://www.reddit.com/r/theredditbowl");
+    postMessage("http://www.reddit.com/r/madden");
     this.res.end();
   } 
   else if(request.text && botRegexCoaches.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://www.daddyleagues.com/trb/coaches");
+    postMessage("https://www.daddyleagues.com/vnfl/coaches");
     this.res.end();
   } 
   else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
+    postMessage("https://google.com");
     this.res.end();
   }
    else if(request.text && botRegexUserGames.test(request.text)) {
@@ -95,7 +95,7 @@ function respond() {
   }
    else if(request.text && botRegexSim.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://drive.google.com/open?id=0B4Qbc_uYjDSjTF9iMUp5eWtPMXM");
+    postMessage("https://google.com");
     this.res.end();
   }
   else {
